@@ -14,11 +14,13 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-// Route::middleware('auth:api')->get('/user', function (Request $request) {
-//     return $request->user();
-// });
-
-
-//Admin API
-Route::get('admin', 'AdminController@index');
-Route::post('admin', 'AdminController@create');
+Route::get('thingspeak', 'AmbilController@index'); //ambil seluruh data di thingspeak
+Route::get('suhu', 'AmbilController@indexsuhu'); //ambil suhu di thingspeak
+Route::get('saturasi', 'AmbilController@indexsaturasi'); //amnil saturasi di thingspeak
+Route::get('maxsuhu', 'AmbilController@getmaxsuhu'); //ambil nilai tertinggi dari suhu
+Route::get('minsuhu', 'AmbilController@getminsuhu'); //ambil nilai terendah dari suhu
+Route::get('maxsaturasi', 'AmbilController@getmaxsaturasi'); //ambil nilai tertinggi dari suhu
+Route::get('minsaturasi', 'AmbilController@getminsaturasi'); //ambil nilai terendah dari suhu
+Route::get('meansuhu', 'AmbilController@meansuhu'); //ambil rata-rata suhu
+Route::get('meansaturasi', 'AmbilController@meansaturasi'); //ambil rata-rata saturasi
+Route::get('bydate', 'AmbilController@bydate'); //ambil by tanggal
