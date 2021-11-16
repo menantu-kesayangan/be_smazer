@@ -24,3 +24,12 @@ Route::get('minsaturasi', 'AmbilController@getminsaturasi'); //ambil nilai teren
 Route::get('meansuhu', 'AmbilController@meansuhu'); //ambil rata-rata suhu
 Route::get('meansaturasi', 'AmbilController@meansaturasi'); //ambil rata-rata saturasi
 Route::get('bydate', 'AmbilController@bydate'); //ambil by tanggal
+
+
+
+
+//Route Pengguna
+Route::get('pengguna', 'PenggunaController@index'); //get all data pengguna
+Route::post('pengguna', 'PenggunaController@create'); //create admin
+Route::put('pengguna/{id}', 'PenggunaController@update'); //update profile admin
+Route::delete('pengguna/{id}', 'PenggunaController@delete'); //delete admin
