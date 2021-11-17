@@ -15,7 +15,7 @@ class AmbilController extends Controller
         $curl = curl_init();
 
         curl_setopt_array($curl, array(
-            CURLOPT_URL => "https://api.thingspeak.com/channels/1560641/feeds.json",
+            CURLOPT_URL => "https://api.thingspeak.com/channels/1573562/feeds.json",
             CURLOPT_RETURNTRANSFER => true,
             CURLOPT_ENCODING => "",
             CURLOPT_TIMEOUT => 30000,
@@ -43,7 +43,7 @@ class AmbilController extends Controller
         $curl = curl_init();
 
         curl_setopt_array($curl, array(
-            CURLOPT_URL => "https://api.thingspeak.com/channels/1560641/feeds.json",
+            CURLOPT_URL => "https://api.thingspeak.com/channels/1573562/feeds.json",
             CURLOPT_RETURNTRANSFER => true,
             CURLOPT_ENCODING => "",
             CURLOPT_TIMEOUT => 30000,
@@ -82,7 +82,7 @@ class AmbilController extends Controller
         $curl = curl_init();
 
         curl_setopt_array($curl, array(
-            CURLOPT_URL => "https://api.thingspeak.com/channels/1560641/feeds.json",
+            CURLOPT_URL => "https://api.thingspeak.com/channels/1573562/feeds.json",
             CURLOPT_RETURNTRANSFER => true,
             CURLOPT_ENCODING => "",
             CURLOPT_TIMEOUT => 3000,
@@ -120,7 +120,7 @@ class AmbilController extends Controller
         $curl = curl_init();
 
         curl_setopt_array($curl, array(
-            CURLOPT_URL => "https://api.thingspeak.com/channels/1560641/feeds.json",
+            CURLOPT_URL => "https://api.thingspeak.com/channels/1573562/feeds.json",
             CURLOPT_RETURNTRANSFER => true,
             CURLOPT_ENCODING => "",
             CURLOPT_TIMEOUT => 3000,
@@ -159,7 +159,7 @@ class AmbilController extends Controller
         $curl = curl_init();
 
         curl_setopt_array($curl, array(
-            CURLOPT_URL => "https://api.thingspeak.com/channels/1560641/feeds.json",
+            CURLOPT_URL => "https://api.thingspeak.com/channels/1573562/feeds.json",
             CURLOPT_RETURNTRANSFER => true,
             CURLOPT_ENCODING => "",
             CURLOPT_TIMEOUT => 3000,
@@ -197,7 +197,7 @@ class AmbilController extends Controller
         $curl = curl_init();
 
         curl_setopt_array($curl, array(
-            CURLOPT_URL => "https://api.thingspeak.com/channels/1560641/feeds.json",
+            CURLOPT_URL => "https://api.thingspeak.com/channels/1573562/feeds.json",
             CURLOPT_RETURNTRANSFER => true,
             CURLOPT_ENCODING => "",
             CURLOPT_TIMEOUT => 3000,
@@ -236,7 +236,7 @@ class AmbilController extends Controller
         $curl = curl_init();
 
         curl_setopt_array($curl, array(
-            CURLOPT_URL => "https://api.thingspeak.com/channels/1560641/feeds.json",
+            CURLOPT_URL => "https://api.thingspeak.com/channels/1573562/feeds.json",
             CURLOPT_RETURNTRANSFER => true,
             CURLOPT_ENCODING => "",
             CURLOPT_TIMEOUT => 3000,
@@ -275,7 +275,7 @@ class AmbilController extends Controller
         $curl = curl_init();
 
         curl_setopt_array($curl, array(
-            CURLOPT_URL => "https://api.thingspeak.com/channels/1560641/feeds.json",
+            CURLOPT_URL => "https://api.thingspeak.com/channels/1573562/feeds.json",
             CURLOPT_RETURNTRANSFER => true,
             CURLOPT_ENCODING => "",
             CURLOPT_TIMEOUT => 30000,
@@ -317,7 +317,7 @@ class AmbilController extends Controller
         $curl = curl_init();
 
         curl_setopt_array($curl, array(
-            CURLOPT_URL => "https://api.thingspeak.com/channels/1560641/feeds.json",
+            CURLOPT_URL => "https://api.thingspeak.com/channels/1573562/feeds.json",
             CURLOPT_RETURNTRANSFER => true,
             CURLOPT_ENCODING => "",
             CURLOPT_TIMEOUT => 30000,
