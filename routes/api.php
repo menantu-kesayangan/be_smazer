@@ -28,11 +28,6 @@ Route::get('jmlhpengunjunghariini', 'AmbilController@jmlhpengunjunghariini'); //
 Route::get('jmlhpengunjungmingguini', 'AmbilController@jmlhpengunjungmingguini'); //jumlah pengunjung minggu ini
 Route::get('jmlhpengunjungbulanini', 'AmbilController@jmlhpengunjungbulanini'); //jumlah pengunjung bulan ini
 
-
-
-
-
-
 //Route Pengguna
 Route::get('pengguna', 'PenggunaController@index'); //get all data pengguna
 Route::post('pengguna', 'PenggunaController@create'); //create admin

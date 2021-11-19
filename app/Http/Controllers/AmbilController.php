@@ -7,6 +7,8 @@ use DateTime;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Http;
 
+use function PHPSTORM_META\map;
+
 class AmbilController extends Controller
 {
     //get data
@@ -41,10 +43,11 @@ class AmbilController extends Controller
     public function indexsuhu() //deklarasi index suhu (menampilkan seluruh data suhu)
     {
 
+        $currentDate = strval(gmdate("Y-m-d"));
         $curl = curl_init();
 
         curl_setopt_array($curl, array(
-            CURLOPT_URL => "https://api.thingspeak.com/channels/1567602/feeds.json",
+            CURLOPT_URL => "https://api.thingspeak.com/channels/1567602/feeds.json?key=AB2MDITZZC8AK4Z9&start=" . $currentDate . "T00:00+02:00&end=" . $currentDate . "T23:59+02:00&timezone=GMT+00:00",
             CURLOPT_RETURNTRANSFER => true,
             CURLOPT_ENCODING => "",
             CURLOPT_TIMEOUT => 30000,
@@ -80,10 +83,11 @@ class AmbilController extends Controller
 
     public function indexsaturasi() //deklarasi index saturasi (menampilkan seluruh data satu rasi oksigen)
     {
+        $currentDate = strval(gmdate("Y-m-d"));
         $curl = curl_init();
 
         curl_setopt_array($curl, array(
-            CURLOPT_URL => "https://api.thingspeak.com/channels/1567602/feeds.json",
+            CURLOPT_URL => "https://api.thingspeak.com/channels/1567602/feeds.json?key=AB2MDITZZC8AK4Z9&start=" . $currentDate . "T00:00+02:00&end=" . $currentDate . "T23:59+02:00&timezone=GMT+00:00",
             CURLOPT_RETURNTRANSFER => true,
             CURLOPT_ENCODING => "",
             CURLOPT_TIMEOUT => 3000,
@@ -118,10 +122,11 @@ class AmbilController extends Controller
 
     public function getmaxsuhu() //menampilkan suhu tertinggi
     {
+        $currentDate = strval(gmdate("Y-m-d"));
         $curl = curl_init();
 
         curl_setopt_array($curl, array(
-            CURLOPT_URL => "https://api.thingspeak.com/channels/1567602/feeds.json",
+            CURLOPT_URL => "https://api.thingspeak.com/channels/1567602/feeds.json?key=AB2MDITZZC8AK4Z9&start=" . $currentDate . "T00:00+02:00&end=" . $currentDate . "T23:59+02:00&timezone=GMT+00:00",
             CURLOPT_RETURNTRANSFER => true,
             CURLOPT_ENCODING => "",
             CURLOPT_TIMEOUT => 3000,
@@ -157,10 +162,11 @@ class AmbilController extends Controller
 
     public function getminsuhu() //menampilkan suhu terendah
     {
+        $currentDate = strval(gmdate("Y-m-d"));
         $curl = curl_init();
 
         curl_setopt_array($curl, array(
-            CURLOPT_URL => "https://api.thingspeak.com/channels/1567602/feeds.json",
+            CURLOPT_URL => "https://api.thingspeak.com/channels/1567602/feeds.json?key=AB2MDITZZC8AK4Z9&start=" . $currentDate . "T00:00+02:00&end=" . $currentDate . "T23:59+02:00&timezone=GMT+00:00",
             CURLOPT_RETURNTRANSFER => true,
             CURLOPT_ENCODING => "",
             CURLOPT_TIMEOUT => 3000,
@@ -193,12 +199,14 @@ class AmbilController extends Controller
         $data['data'] = $min;
         return $data;
     }
+
     public function getmaxsaturasi() //menampilkan saturasi tertinggi
     {
+        $currentDate = strval(gmdate("Y-m-d"));
         $curl = curl_init();
 
         curl_setopt_array($curl, array(
-            CURLOPT_URL => "https://api.thingspeak.com/channels/1567602/feeds.json",
+            CURLOPT_URL => "https://api.thingspeak.com/channels/1567602/feeds.json?key=AB2MDITZZC8AK4Z9&start=" . $currentDate . "T00:00+02:00&end=" . $currentDate . "T23:59+02:00&timezone=GMT+00:00",
             CURLOPT_RETURNTRANSFER => true,
             CURLOPT_ENCODING => "",
             CURLOPT_TIMEOUT => 3000,
@@ -234,10 +242,11 @@ class AmbilController extends Controller
 
     public function getminsaturasi()
     {
+        $currentDate = strval(gmdate("Y-m-d"));
         $curl = curl_init();
 
         curl_setopt_array($curl, array(
-            CURLOPT_URL => "https://api.thingspeak.com/channels/1567602/feeds.json",
+            CURLOPT_URL => "https://api.thingspeak.com/channels/1567602/feeds.json?key=AB2MDITZZC8AK4Z9&start=" . $currentDate . "T00:00+02:00&end=" . $currentDate . "T23:59+02:00&timezone=GMT+00:00",
             CURLOPT_RETURNTRANSFER => true,
             CURLOPT_ENCODING => "",
             CURLOPT_TIMEOUT => 3000,
@@ -273,10 +282,11 @@ class AmbilController extends Controller
 
     public function meansuhu()
     {
+        $currentDate = strval(gmdate("Y-m-d"));
         $curl = curl_init();
 
         curl_setopt_array($curl, array(
-            CURLOPT_URL => "https://api.thingspeak.com/channels/1567602/feeds.json",
+            CURLOPT_URL => "https://api.thingspeak.com/channels/1567602/feeds.json?key=AB2MDITZZC8AK4Z9&start=" . $currentDate . "T00:00+02:00&end=" . $currentDate . "T23:59+02:00&timezone=GMT+00:00",
             CURLOPT_RETURNTRANSFER => true,
             CURLOPT_ENCODING => "",
             CURLOPT_TIMEOUT => 30000,
@@ -315,10 +325,11 @@ class AmbilController extends Controller
 
     public function meansaturasi()
     {
+        $currentDate = strval(gmdate("Y-m-d"));
         $curl = curl_init();
 
         curl_setopt_array($curl, array(
-            CURLOPT_URL => "https://api.thingspeak.com/channels/1567602/feeds.json",
+            CURLOPT_URL => "https://api.thingspeak.com/channels/1567602/feeds.json?key=AB2MDITZZC8AK4Z9&start=" . $currentDate . "T00:00+02:00&end=" . $currentDate . "T23:59+02:00&timezone=GMT+00:00",
             CURLOPT_RETURNTRANSFER => true,
             CURLOPT_ENCODING => "",
             CURLOPT_TIMEOUT => 30000,
@@ -385,13 +396,13 @@ class AmbilController extends Controller
             foreach ($response['feeds'] as $responses) {
                 $array_tanggal[] = $responses['created_at'];
                 $field4[] = $responses['field4'];
-                $max = max($field4);
+                $count = count($field4);
             }
         }
 
         $data['message'] = true; //menampilkan status
         $data['message'] = "Data Jumlah Pengunjung Hari Ini"; //menampilkan pesan
-        $data['data'] = $max; //ambil data terakhir di hari ini
+        $data['data'] = $count; //ambil data terakhir di hari ini
         return $data;
     }
 
@@ -472,7 +483,7 @@ class AmbilController extends Controller
         }
 
         $data['message'] = true; //menampilkan status
-        $data['message'] = "Data Jumlah Pengunjung Minggu Ini"; //menampilkan pesan
+        $data['message'] = "Data Jumlah Pengunjung Bulan Ini"; //menampilkan pesan
         $data['data'] = $count; //jumlah data perbulan
         return $data;
     }
