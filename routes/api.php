@@ -23,10 +23,11 @@ Route::get('maxsaturasi', 'AmbilController@getmaxsaturasi'); //ambil nilai terti
 Route::get('minsaturasi', 'AmbilController@getminsaturasi'); //ambil nilai terendah dari suhu
 Route::get('meansuhu', 'AmbilController@meansuhu'); //ambil rata-rata suhu
 Route::get('meansaturasi', 'AmbilController@meansaturasi'); //ambil rata-rata saturasi
-Route::get('bydate', 'AmbilController@bydate'); //ambil by tanggal
 Route::get('jmlhpengunjunghariini', 'AmbilController@jmlhpengunjunghariini'); //jumlah pengunjung hari ini
 Route::get('jmlhpengunjungmingguini', 'AmbilController@jmlhpengunjungmingguini'); //jumlah pengunjung minggu ini
 Route::get('jmlhpengunjungbulanini', 'AmbilController@jmlhpengunjungbulanini'); //jumlah pengunjung bulan ini
+Route::get('cairan', 'AmbilController@cairan'); //ambil data cairan handsanitizer
+
 
 //Route Pengguna
 Route::get('pengguna', 'PenggunaController@index'); //get all data pengguna

@@ -70,7 +70,6 @@ class AmbilController extends Controller
             $array_tanggal = array();
             $field1 = array();
             foreach ($response['feeds'] as $responses) {
-                $array_tanggal[] = $responses['created_at'];
                 $field1[] = $responses['field1'];
             }
         }
@@ -309,7 +308,6 @@ class AmbilController extends Controller
             $array_tanggal = array();
             $field1 = array();
             foreach ($response['feeds'] as $responses) {
-                $array_tanggal[] = $responses['created_at'];
                 $field1[] = $responses['field1'];
                 $sum = array_sum($field1);
                 $count = count($field1);
@@ -352,7 +350,6 @@ class AmbilController extends Controller
             $array_tanggal = array();
             $field2 = array();
             foreach ($response['feeds'] as $responses) {
-                $array_tanggal[] = $responses['created_at'];
                 $field2[] = $responses['field2'];
                 $sum = array_sum($field2);
                 $count = count($field2);
@@ -394,7 +391,6 @@ class AmbilController extends Controller
 
             $field4 = array();
             foreach ($response['feeds'] as $responses) {
-                $array_tanggal[] = $responses['created_at'];
                 $field4[] = $responses['field4'];
                 $count = count($field4);
             }
@@ -435,7 +431,6 @@ class AmbilController extends Controller
 
             $field4 = array();
             foreach ($response['feeds'] as $responses) {
-                $array_tanggal[] = $responses['created_at'];
                 $field4[] = $responses['field4'];
                 $count = count($field4);
             }
@@ -476,7 +471,6 @@ class AmbilController extends Controller
 
             $field4 = array();
             foreach ($response['feeds'] as $responses) {
-                $array_tanggal[] = $responses['created_at'];
                 $field4[] = $responses['field4'];
                 $count = count($field4);
             }
@@ -485,6 +479,44 @@ class AmbilController extends Controller
         $data['message'] = true; //menampilkan status
         $data['message'] = "Data Jumlah Pengunjung Bulan Ini"; //menampilkan pesan
         $data['data'] = $count; //jumlah data perbulan
+        return $data;
+    }
+    public function cairan()
+    {
+        $curl = curl_init();
+        $currentDate = strval(gmdate("Y-m-d"));
+
+        curl_setopt_array($curl, array(
+            CURLOPT_URL => "https://api.thingspeak.com/channels/1567602/feeds.json?key=AB2MDITZZC8AK4Z9&start=" . $currentDate . "T00:00+02:00&end=" . $currentDate . "T23:59+02:00&timezone=GMT+00:00",
+            CURLOPT_RETURNTRANSFER => true,
+            CURLOPT_ENCODING => "",
+            CURLOPT_TIMEOUT => 30000,
+            CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+            CURLOPT_CUSTOMREQUEST => "GET",
+            CURLOPT_HTTPHEADER => array(
+                // Set Here Your Requesred Headers
+                'Content-Type: application/json',
+            ),
+        ));
+        $response = curl_exec($curl);
+        $err = curl_error($curl);
+        curl_close($curl);
+
+        if ($err) {
+            echo "cURL Error #:" . $err;
+        } else {
+            $response = json_decode($response, true);
+
+            $field3 = array();
+            foreach ($response['feeds'] as $responses) {
+                $field3[] = $responses['field3'];
+                $last = last($field3);
+            }
+        }
+
+        $data['message'] = true; //menampilkan status
+        $data['message'] = "Data Cairan"; //menampilkan pesan
+        $data['data'] = $last; //jumlah data perbulan
         return $data;
     }
 }
