@@ -67,14 +67,13 @@ class AmbilController extends Controller
         } else {
             $response = json_decode($response, true);
 
-            $array_tanggal = array();
             $field1 = array();
             foreach ($response['feeds'] as $responses) {
                 $field1[] = $responses['field1'];
             }
         }
 
-        $data['message'] = true; //menampilkan status
+        $data['status'] = true; //menampilkan status
         $data['message'] = "Data Suhu ThingSpeak"; //menampilkan pesan
         $data['data'] = $field1;
         return $data;
@@ -113,7 +112,7 @@ class AmbilController extends Controller
                 $field2[] = $response['field2'];
             }
         }
-        $data['message'] = true; //menampilkan status
+        $data['status'] = true; //menampilkan status
         $data['message'] = "Data Saturasi Oksigen ThingSpeak"; //menampilkan pesan
         $data['data'] = $field2;
         return $data;
@@ -518,5 +517,52 @@ class AmbilController extends Controller
         $data['message'] = "Data Cairan"; //menampilkan pesan
         $data['data'] = $last; //jumlah data perbulan
         return $data;
+    }
+
+    public function grafiksuhu() //deklarasi index suhu (menampilkan seluruh data suhu)
+    {
+
+        $currentDate = strval(gmdate("Y-m-d"));
+
+        $curl = curl_init();
+
+        curl_setopt_array($curl, array(
+            CURLOPT_URL => "https://api.thingspeak.com/channels/1567602/feeds.json?key=AB2MDITZZC8AK4Z9&start=" . $currentDate . "T00:00+02:00&end=" . $currentDate . "T23:59+02:00&timezone=GMT+00:00",
+            CURLOPT_RETURNTRANSFER => true,
+            CURLOPT_ENCODING => "",
+            CURLOPT_TIMEOUT => 30000,
+            CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+            CURLOPT_CUSTOMREQUEST => "GET",
+            CURLOPT_HTTPHEADER => array(
+                // Set Here Your Requesred Headers
+                'Content-Type: application/json',
+            ),
+        ));
+        $response = curl_exec($curl);
+        $err = curl_error($curl);
+        curl_close($curl);
+
+        if ($err) {
+            echo "cURL Error #:" . $err;
+        } else {
+            $response = json_decode($response, true);
+
+            $array_tanggal = array();
+            $field1 = array();
+            foreach ($response['feeds'] as $responses) {
+                $originalDate = $responses['created_at'];
+                $newDate = date("H:i:s", strtotime($originalDate));
+                //$array_waktu = DateTime::createFromFormat($responses['created_at']);
+                array_push($array_tanggal, $newDate);
+                $field1[] = $responses['field1'];
+            }
+        }
+
+        $data['status'] = true; //menampilkan status
+        $data['message'] = "Data Suhu ThingSpeak"; //menampilkan pesan
+        $data['x'] = $array_tanggal;
+        $data['y'] = $field1;
+        return $data;
+        //var_dump($array_waktu);
     }
 }

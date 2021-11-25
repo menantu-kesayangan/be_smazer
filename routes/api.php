@@ -27,6 +27,7 @@ Route::get('jmlhpengunjunghariini', 'AmbilController@jmlhpengunjunghariini'); //
 Route::get('jmlhpengunjungmingguini', 'AmbilController@jmlhpengunjungmingguini'); //jumlah pengunjung minggu ini
 Route::get('jmlhpengunjungbulanini', 'AmbilController@jmlhpengunjungbulanini'); //jumlah pengunjung bulan ini
 Route::get('cairan', 'AmbilController@cairan'); //ambil data cairan handsanitizer
+Route::get('grafiksuhu', 'AmbilController@grafiksuhu'); // ambil data x dan y untuk grafik suhu
 
 
 //Route Pengguna
