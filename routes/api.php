@@ -14,6 +14,8 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+
+//Route Ambil Data dari THINGSPEAK
 Route::get('thingspeak', 'AmbilController@index'); //ambil seluruh data di thingspeak
 Route::get('suhu', 'AmbilController@indexsuhu'); //ambil suhu di thingspeak
 Route::get('saturasi', 'AmbilController@indexsaturasi'); //amnil saturasi di thingspeak
@@ -28,6 +30,7 @@ Route::get('jmlhpengunjungmingguini', 'AmbilController@jmlhpengunjungmingguini')
 Route::get('jmlhpengunjungbulanini', 'AmbilController@jmlhpengunjungbulanini'); //jumlah pengunjung bulan ini
 Route::get('cairan', 'AmbilController@cairan'); //ambil data cairan handsanitizer
 Route::get('grafiksuhu', 'AmbilController@grafiksuhu'); // ambil data x dan y untuk grafik suhu
+Route::get('grafiksaturasi', 'AmbilController@grafiksaturasi'); // ambil data x dan y untuk grafik saturasi oksigen
 
 
 //Route Pengguna
